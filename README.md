@@ -108,10 +108,10 @@ Note: Assuming imc_servers contains a list of imc_servers to be configured from 
 * end   
 
 
-## Contributing
+## Community
 ***
 
-TBD
+We are on Slack - slack requires registration, but the ucspython team is open invitation to anyone to register here : https://ucspython.herokuapp.com/
 
 ## License
 ***

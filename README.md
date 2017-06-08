@@ -11,7 +11,7 @@ Follow the steps outlined below to install the cookbook
      It is a good practice to set the cisco imc accounts in the data bag of chef, 
      because you will need to mention the data bag item name in the auth_data parameter of the recipe.
   2. Run the command on the workstation from under the chef-repo folder.   
-    * knife cookbook upload cisco-imc-chef
+    * knife cookbook upload cisco_imc_cookbook
   3. Add recipe to the run-list of the chef node and run chef-client.
 
 ## Setting the Cisco IMC Accounts in Chef
@@ -33,7 +33,7 @@ Follow the steps outlined below to setup the Cisco IMC Accounts in chef.
 ***
 Follow the steps outlined below to un-install the cookbook.
   1. Run the command on chef workstation from under the chef-repo folder.   
-    * knife cookbook delete cisco-imc-chef   
+    * knife cookbook delete cisco_imc_cookbook   
 
 ## Requirements
 ***

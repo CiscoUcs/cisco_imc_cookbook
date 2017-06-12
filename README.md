@@ -21,58 +21,59 @@ Follow the steps outlined below to setup the Cisco IMC Accounts in chef.
   1. Create a data bag in chef with the name "cisco_imc_accounts". This data bag name is configurable in the default.rb attribute file.
   2. Now, create an item under the data bag. 
   3. Edit each item and add json data as follows.   
-  <pre><code>
-  {   
-    "user": "admin",   
-    "password": "********",   
-    "port": "80",
-    "secure":false
-  }
-  </code></pre>
-<br/>Note: You can create multiple such data bag items, depending upon the number of account you have.
+<pre><code>
+{   
+  "user": "admin",   
+  "password": "********",   
+  "port": "80",
+  "secure":false
+}
+Note: You can create multiple such data bag items, depending upon the number of account you have.
+</code></pre>
+
 
 ## uninstall
-***
+
 Follow the steps outlined below to un-install the cookbook.
   1. Run the command on chef workstation from under the chef-repo folder.   
     * knife cookbook delete cisco_imc_cookbook   
 
 ## Requirements
-***
+
 
 ### Platforms
-***
+
 
 - CentOS Release 6.5 or later
 - ubuntu Release 16.04 or later
 
 ### Ruby
-***
+
 
 - Ruby v2.2.x or later
 
 ### Chef
-***
+
 
 - Chef 12.0 or later
 
 ### Cookbooks
-***
+
 
 - None
 
 ### Cisco IMC Versions
-***
+
 
 - Cisco IMC v2.0(3) or later
 
 
 ## Attributes
-***
+
 
 * default[:databag][:name]    =  "cisco_imc_accounts"
 
-***
+
 
 <table>
   <tr>
@@ -82,10 +83,10 @@ Follow the steps outlined below to un-install the cookbook.
 </table>
 
 ## Usage
-***
+
 
 ### Recipe connecting to single Cisco IMC Server.
-***
+
 Note: auth_data should be set to the data bag item name that should be used to authenticate with the IMC Server.
 <pre><code>
 cisco_imc_user_config 'cisco_imc_user_config' do
@@ -123,7 +124,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 We are on Slack - slack requires registration, but the ucspython team is open invitation to anyone to register [here](https://ucspython.herokuapp.com/)
 
 ## License
-***
+
 Copyright 2017 Cisco Systems, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");   

@@ -5,29 +5,30 @@ This cookbook configures the Cisco IMC Servers(standalone).
 
 ## Install
 ***
-Follow the steps outlined below to install the cookbook   
+Follow the steps outlined below to install the cookbook.
   1. Move the cookbook under chef-repo folder on your workstation.
   2. Create your recipes, sample recipes are provided in the cookbook. 
-     It is a good practice to set the cisco imc accounts in the data bag of chef, 
-     because you will need to mention the data bag item name in the auth_data parameter of the recipe.
-  2. Run the command on the workstation from under the chef-repo folder.   
-    * knife cookbook upload cisco-imc-chef
-  3. Add recipe to the run-list of the chef node and run chef-client.
+    It is a good practice to set the cisco imc accounts in the data bag of chef, 
+    because you will need to mention the data bag item name in the auth_data parameter of the recipe.
+  3. Run the command on the workstation from under the chef-repo folder.   
+      <pre><code>knife cookbook upload cisco-imc-chef</code></pre>
+  4. Add recipe to the run-list of the chef node and run chef-client.
 
 ## Setting the Cisco IMC Accounts in Chef
 ***
 Follow the steps outlined below to setup the Cisco IMC Accounts in chef.
-1. Create a data bag in chef with the name "cisco_imc_accounts". This data bag name is configurable in the default.rb attribute file.
-2. Now, create an item under the data bag. 
-3. Edit each item and add json data as follows.   
-  
-* {   
-    * "user": "admin",   
-    * "password": "********",   
-    * "port": "80",
-    * "secure":false
-* }
-* Note: You can create multiple such data bag items, depending upon the number of account you have.
+  1. Create a data bag in chef with the name "cisco_imc_accounts". This data bag name is configurable in the default.rb attribute file.
+  2. Now, create an item under the data bag. 
+  3. Edit each item and add json data as follows.   
+  <pre><code>
+  {   
+    "user": "admin",   
+    "password": "********",   
+    "port": "80",
+    "secure":false
+  }
+  </code></pre>
+<br/>Note: You can create multiple such data bag items, depending upon the number of account you have.
 
 ## uninstall
 ***
@@ -41,7 +42,8 @@ Follow the steps outlined below to un-install the cookbook.
 ### Platforms
 ***
 
-- CentOS Release 6.5
+- CentOS Release 6.5 or later
+- ubuntu Release 16.04 or later
 
 ### Ruby
 ***
@@ -84,34 +86,40 @@ Follow the steps outlined below to un-install the cookbook.
 ### Recipe connecting to single Cisco IMC Server.
 ***
 Note: auth_data should be set to the data bag item name that should be used to authenticate with the IMC Server.
-* cisco_imc_user_config 'cisco_imc_user_config' do  
-    * ipaddress "10.105.219.15"
-    * auth_data "imc_account"
-    * account_status 'active'  
-    * username 'testuser'   
-    * password '*******'   
-    * priv "read-only"   
-    * action :create   
-* end
+<pre><code>
+cisco_imc_user_config 'cisco_imc_user_config' do
+  ipaddress "10.105.219.15"
+  auth_data "imc_account"
+  account_status 'active'
+  username 'testuser'
+  password '*******'
+  priv "read-only"
+  action :create   
+end
+</code></pre>
 
 ### Recipe connecting to multiple Cisco IMC Server from a chef client
 ***
-Note: Assuming imc_servers contains a list of imc_servers to be configured from a chef client node. 
-* for imc_server in imc_servers   
-    * cisco_imc_ntp_config "cisco_imc_ntp_config-#{imc_server}" do   
-      * ipaddress imc_server
-      * auth_data "imc_account"
-      * ntp_state 'yes'   
-      * ntp_servers [{:id => 2, :ip => "10.105.219.95"}, {:id => 3, :ip => "10.105.219.106"}]   
-      * action :enable   
-    * end 
-* end   
-
+Note: Assuming imc_servers contains a list of imc_servers to be configured from a chef client node.
+<pre><code>
+for imc_server in imc_servers   
+  cisco_imc_ntp_config "cisco_imc_ntp_config-#{imc_server}" do
+    ipaddress imc_server
+    auth_data "imc_account"
+    ntp_state 'yes'   
+    ntp_servers [{:id => 2, :ip => "10.105.219.95"}, {:id => 3, :ip => "10.105.219.106"}]   
+    action :enable   
+  end
+end
+</code></pre>   
 
 ## Contributing
-***
 
-TBD
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Community
+
+We are on Slack - slack requires registration, but the ucspython team is open invitation to anyone to register [here](https://ucspython.herokuapp.com/)
 
 ## License
 ***

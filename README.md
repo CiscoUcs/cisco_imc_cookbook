@@ -14,6 +14,7 @@ Follow the steps outlined below to install the cookbook.
       <pre><code>knife cookbook upload cisco-imc-chef</code></pre>
   4. Add recipe to the run-list of the chef node and run chef-client.
 
+
 ## Setting the Cisco IMC Accounts in Chef
 ***
 Follow the steps outlined below to setup the Cisco IMC Accounts in chef.
@@ -34,7 +35,7 @@ Follow the steps outlined below to setup the Cisco IMC Accounts in chef.
 ***
 Follow the steps outlined below to un-install the cookbook.
   1. Run the command on chef workstation from under the chef-repo folder.   
-    * knife cookbook delete cisco-imc-chef   
+    * knife cookbook delete cisco_imc_cookbook   
 
 ## Requirements
 ***

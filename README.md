@@ -1,10 +1,9 @@
 # cisco_imc_cookbook README
-***
 
 This cookbook configures the Cisco IMC Servers(standalone).
 
 ## Install
-***
+
 Follow the steps outlined below to install the cookbook.
   1. Move the cookbook under chef-repo folder on your workstation.
   2. Create your recipes, sample recipes are provided in the cookbook. 
@@ -16,7 +15,7 @@ Follow the steps outlined below to install the cookbook.
 
 
 ## Setting the Cisco IMC Accounts in Chef
-***
+
 Follow the steps outlined below to setup the Cisco IMC Accounts in chef.
   1. Create a data bag in chef with the name "cisco_imc_accounts". This data bag name is configurable in the default.rb attribute file.
   2. Now, create an item under the data bag. 
